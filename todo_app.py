@@ -1,3 +1,5 @@
+import tkinter as tk
+from tkinter import messagebox
 import sqlite3
 from datetime import datetime
 
@@ -16,6 +18,7 @@ def add_task(task_name, description):
                    VALUES (?, ?, 'pending', ?)
                    ''', (task_name, description, date_added))
     conn.commit()
+    messagebox.showinfo("Success", f"Task '{task_name}' added successfully.")
     print(Fore.GREEN + f"Task '{task_name}' added successfully." + Style.RESET_ALL)
 
 def view_tasks():
